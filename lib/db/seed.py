@@ -25,3 +25,5 @@ def insert_planets():
         session.add(planet_obj)
 
     session.commit()
+
+    #time dilation works!
