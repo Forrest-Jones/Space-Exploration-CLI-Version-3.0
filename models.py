@@ -20,5 +20,12 @@ class Planet(Base):
     star_system = Column(String)
     distance = Column(Float)
 
+
+class Astronomer(Base):
+    __tablename = 'astronomer'
+    name = Column(String, primary_key=True)
+    planet = Column(String)
+    born = Column(Integer)
+
 # create the table
 Base.metadata.create_all(engine)

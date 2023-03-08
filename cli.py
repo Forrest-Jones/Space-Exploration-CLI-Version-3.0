@@ -143,4 +143,3 @@ def time_dilation(name, years):
 
 if __name__ == '__main__':
     main()
-
