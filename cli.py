@@ -4,6 +4,61 @@ from sqlalchemy.orm import sessionmaker
 from models import Planet
 from helpers import get_planets_by_system, get_planets_by_distance, get_planet_by_name
 
+import os
+import time
+
+ROWS = 40    # Height of screen (lines)
+COLS = 60    # Width of screen
+HEIGHT = 10  # Height of ASCII rocket (lines)
+
+ROCKET = """
+      |
+     / \\
+    / _ \\
+   |.o '.|
+   |'._.'|
+   |     |
+   |     |
+ ,'|  |  |`.
+/  |  |  |  \\
+|,-'--|--'-.|
+"""
+
+def initScreen():
+    os.system(f"mode con cols={COLS} lines={ROWS}") # Set num cols and rows for window
+    os.system("color 0a")   # Set color of window and text
+
+def countDown():
+    for count in range(10, 0, -1):
+        os.system("cls")
+        print(count)
+        time.sleep(1)
+
+def takeoff():
+    for i in range(ROWS, HEIGHT, -1):
+        os.system("cls")
+        for j in range(i - HEIGHT, 0, -1):
+            print()
+        print(ROCKET)
+        time.sleep(0.01)
+
+def main():
+    initScreen()
+    os.system("pause")
+    os.system("cls")
+    print("Prepare for takeoff...")
+    time.sleep(2)
+    countDown()
+    os.system("cls")
+    print("Liftoff!")
+    time.sleep(2)
+    takeoff()
+    os.system("cls")
+    print("We are now in orbit.")
+
+if __name__ == "__main__":
+    main()
+
 engine = create_engine('sqlite:///space-exploration.db')
 Session = sessionmaker(bind=engine)
 
