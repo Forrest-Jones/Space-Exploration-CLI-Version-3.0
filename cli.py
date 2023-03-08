@@ -30,30 +30,30 @@ def initScreen():
 
 def countDown():
     for count in range(10, 0, -1):
-        os.system("cls")
+        os.system("clear")
         print(count)
         time.sleep(1)
 
 def takeoff():
     for i in range(ROWS, HEIGHT, -1):
-        os.system("cls")
+        os.system("clear")
         for j in range(i - HEIGHT, 0, -1):
             print()
         print(ROCKET)
-        time.sleep(0.01)
+        time.sleep(0.075)
 
 def main():
     initScreen()
     os.system("pause")
-    os.system("cls")
+    os.system("clear")
     print("Prepare for takeoff...")
     time.sleep(2)
     countDown()
-    os.system("cls")
+    os.system("clear")
     print("Liftoff!")
     time.sleep(2)
     takeoff()
-    os.system("cls")
+    os.system("clear")
     print("We are now in orbit.")
 
 if __name__ == "__main__":
