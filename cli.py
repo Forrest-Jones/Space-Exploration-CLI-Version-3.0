@@ -6,6 +6,7 @@ from helpers import get_planets_by_system, get_planets_by_distance, get_planet_b
 
 import os
 import time
+import pyfiglet
 
 ROWS = 40    # Height of screen (lines)
 COLS = 60    # Width of screen
@@ -42,6 +43,12 @@ def takeoff():
         print(ROCKET)
         time.sleep(0.075)
 
+    os.system("clear;printf '\033[3J'")
+    ascii_text = pyfiglet.figlet_format("SPACE EXPLORATION CLI")
+    for line in ascii_text.split("\n"):
+        print(" " * ((COLS - len(line)) // 2) + line)
+        time.sleep(1)
+
 def main():
     initScreen()
     os.system("pause")
@@ -57,14 +64,10 @@ def main():
     print("We are now in orbit.")
 
 if __name__ == "__main__":
+    engine = create_engine('sqlite:///space-exploration.db')
+    Session = sessionmaker(bind=engine)
     main()
 
-engine = create_engine('sqlite:///space-exploration.db')
-Session = sessionmaker(bind=engine)
-
-@click.group()
-def main():
-    pass
 
 # add this function
 @main.command()
