@@ -1,4 +1,5 @@
 from models import Planet
+from models import Astronomer
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 
@@ -23,6 +24,15 @@ def insert_planets():
     for planet in planets:
         planet_obj = Planet(name=planet['name'], star_system=planet['star_system'], distance=planet['distance'])
         session.add(planet_obj)
+
+def insert_astronomers():
+    astronomers = [
+        {'Astronomer_Name': 'Robert T.A. Innes', 'planet' : 'Proxima Centauri B', 'born' : 1861}
+    ]
+    
+    for astronomer in astronomers:
+        astronomer_obj = Astronomer(name=astronomer['astronomer_Name'], planet=astronomer['planet'], born=astronomer['born'])
+        session.add(astronomer_obj)
 
     session.commit()
 

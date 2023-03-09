@@ -22,7 +22,8 @@ class Planet(Base):
 
 
 class Astronomer(Base):
-    __tablename = 'astronomer'
+    __tablename__ = 'astronomers'
+
     name = Column(String, primary_key=True)
     planet = Column(String)
     born = Column(Integer)
