@@ -81,3 +81,26 @@ To use the app, the user needs to run the Python script followed by the command 
     list_planets: List all the planets present in the database along with their star system and distance in light years. The user can invoke this command by typing: python lib/cli.py list_planets
 
     filter: Filter the planets in the database by either star system or distance. The user can invoke this command by typing: python lib/cli.py filter --system <star_system_name> to filter  by star system, or `python lib/cli.py filter --distance
+
+
+
+
+###Here is an exhaustive list of command functionality:
+
+find_planet: Find a planet by its name and display its star system and distance in light years. The user can invoke this command by typing: python lib/cli.py find_planet --name <planet_name>
+
+add_planet: Add a new planet to the database with its name, star system, and distance in light years. The user can invoke this command by typing: python lib/cli.py add_planet --name <planet_name> --star-system <star_system_name> --distance <distance>
+
+delete_planet: Delete a planet from the database by its name. The user can invoke this command by typing: python lib/cli.py delete_planet --name <planet_name>
+
+list_planets: List all the planets present in the database along with their star system and distance in light years. The user can invoke this command by typing: python lib/cli.py list_planets
+
+filter: Filter the planets in the database by either star system or distance. The user can invoke this command by typing: python lib/cli.py filter --system <star_system_name> to filter by star system, or python lib/cli.py filter --distance <distance> to filter by distance.
+
+time_dilation: Calculate the time passed on Earth for a given number of years passed on a planet, taking into account time dilation due to the planet's distance from Earth. The user can invoke this command by typing: python lib/cli.py time_dilation --name <planet_name> --years <years>
+
+discoverers: List all astronomers and the planets they discovered. The user can invoke this command by typing: python lib/cli.py discoverers
+
+travel_time: Calculate the time required to travel to a planet at a given spaceship speed. The user can invoke this command by typing: python lib/cli.py travel_time --name <planet_name> --speed <spaceship_speed>
+
+#Eleanor and Tyler:  "Thank you for shopping with us. Wasn't it out of this world?" 
