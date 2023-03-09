@@ -23,3 +23,12 @@ def get_planet_by_name(name):
     planet = session.query(Planet).filter_by(name=name).first()
     session.close()
     return planet
+
+def time_to_planets(spacecraft_name, speed_mph):
+    time_to_planet = {}
+    planets = session.query(Planet).all()
+    for planet in planets:
+        distance_miles = planet.distance * 5.87849981e+12 # convert light years to miles
+        time_hours = distance_miles / speed_mph
+        time_to_planet[planet.name] = time_hours
+    return time_to_planet

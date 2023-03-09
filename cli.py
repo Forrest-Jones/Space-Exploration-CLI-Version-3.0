@@ -155,8 +155,17 @@ def discoverers():
     for row in results:
         click.echo(f'{row[0].name}\t\t{row[1].name} ({row[1].star_system})')
 
-
-
+@main.command()
+@click.option('--name', prompt='Planet name', help='Name of the planet')
+@click.option('--speed', prompt='Spaceship speed (km/s)', help='Speed of the spaceship in km/s', type=float)
+def travel_time(name, speed):
+    planet = get_planet_by_name(name)
+    if planet:
+        distance = planet.distance * 9.4607e+12  # Convert light years to km
+        time = distance / (speed * 1000)  # Convert km/s to km/h
+        click.echo(f'Time to travel to {name} at {speed} km/s: {time} hours')
+    else:
+        click.echo(f'{name} not found in the database')
 
 if __name__ == '__main__':
     main()
