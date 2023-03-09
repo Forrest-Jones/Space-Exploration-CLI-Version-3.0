@@ -56,7 +56,7 @@
 
 To use the app, the user needs to run the Python script followed by the command and any required options and arguments. For example, to add a new planet to the database, the user can type:
 
-    "python lib/cli.py add_planet --name "New Planet" --star-system "New Star System" --distance 10.5"
+    "python cli.py add-planet"
 
 #find_planet: Find a planet by its name and display its star system and distance in light years.
 

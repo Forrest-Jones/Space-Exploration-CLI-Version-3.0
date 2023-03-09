@@ -3,6 +3,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from models import Planet
 from helpers import get_planets_by_system, get_planets_by_distance, get_planet_by_name
+from models import Planet, Astronomer
+
 
 import os
 import time
@@ -142,6 +144,18 @@ def time_dilation(name, years):
         click.echo(f'Time passed on Earth: {time_passed} years')
     else:
         click.echo(f'{name} not found in the database')
+
+@main.command()
+def discoverers():
+    session = Session()
+    results = session.query(Astronomer, Planet).join(Planet, Astronomer.planet == Planet.name).all()
+    session.close()
+
+    click.echo('Astronomer\tPlanet')
+    for row in results:
+        click.echo(f'{row[0].name}\t\t{row[1].name} ({row[1].star_system})')
+
+
 
 
 if __name__ == '__main__':
