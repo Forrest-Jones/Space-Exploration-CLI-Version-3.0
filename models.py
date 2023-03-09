@@ -2,6 +2,7 @@
 # #and alembic upgrade head to track your modifications to the database and create checkpoints 
 # #in case you ever need to roll those modifications back.
 
+from sqlalchemy import Integer
 from sqlalchemy import create_engine, Column, String, Float
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
@@ -22,11 +23,11 @@ class Planet(Base):
 
 
 class Astronomer(Base):
-    __tablename__ = 'astronomers'
-
+    __tablename__ = 'astronomer'
     name = Column(String, primary_key=True)
     planet = Column(String)
     born = Column(Integer)
+
 
 # create the table
 Base.metadata.create_all(engine)

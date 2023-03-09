@@ -68,8 +68,10 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     main()
 
+@click.group()
+def main():
+    pass
 
-# add this function
 @main.command()
 @click.option('--name', prompt='Planet name', help='Name of the planet')
 def find_planet(name):
@@ -140,6 +142,7 @@ def time_dilation(name, years):
         click.echo(f'Time passed on Earth: {time_passed} years')
     else:
         click.echo(f'{name} not found in the database')
+
 
 if __name__ == '__main__':
     main()

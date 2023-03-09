@@ -1,238 +1,83 @@
 # Phase 3 CLI Project Template
 
-## Learning Goals
+#Space Exploration CLI
 
-- Discuss the basic directory structure of a CLI.
-- Outline the first steps in building a CLI.
+#Introduction
 
-***
+#This is a CLI app that allows users to explore information about planets in a database. The app can perform the following actions:
 
-## Introduction
+    find_planet: Find a planet by its name and display its star system and distance in light years.
 
-You now have a basic idea of what constitutes a CLI, but you (understandably!)
-likely don't have the best idea of where to start. Fork and clone this lesson
-for a template for your CLI. Take a look at the directory structure before we
-begin:
+    add_planet: Add a new planet to the database with its name, star system, and distance in light years.
 
-```console
+    delete_planet: Delete a planet from the database by its name.
+
+    list_planets: List all the planets present in the database along with their star system and distance in light years.
+
+    filter: Filter the planets in the database by either star system or distance.
+
+    time_dilation: Calculate the time passed on Earth for a given number of years passed on a planet, taking into account time dilation due to the planet's distance from Earth.
+
+
+#Directory Structure
+
 .
 ├── Pipfile
 ├── Pipfile.lock
 ├── README.md
 └── lib
-    ├── cli.py
-    ├── db
-    │   ├── models.py
-    │   └── seed.py
-    ├── debug.py
-    └── helpers.py
-```
+├── cli.py
+├── db
+│ ├── alembic.ini
+│ ├── models.py
+│ └── seed.py
+├── debug.py
+└── helpers.py
 
-> **Note: You may already know some or all of the material covered in this
-> lesson. We hope that having it all in one place will help you in designing
-> and developing your project, regardless of where you're starting off.**
+#Getting Started
 
-***
+#Fork and clone this repository.
 
-## Where Do I Start?
+#Set up a virtual environment with pipenv.
 
-This project will likely be one of the biggest projects you've undertaken so
-far. Your first task should be creating a Git repository to keep track of your
-work and roll back any undesired changes.
+#Install dependencies with pipenv install (**See below for copy paster pip install**).
 
-### Removing Existing Git Configuration
+#Create the database with alembic upgrade head.
 
-If you're using this template, start off by removing the existing metadata for
-Github and Canvas. Run the following command to carry this out:
+#Seed the database with python lib/db/seed.py.
 
-```console
-$ rm -rf .git .canvas
-```
+#Run the CLI with python lib/cli.py.
 
-The `rm` command removes files from your computer's memory. The `-r` flag tells
-the console to remove _recursively_, which allows the command to remove
-directories and the files within them. `-f` removes them permanently.
+#ALL DEPENDENCIES CAN BE INSTALLED WITH ONE COMMAND(copy and paste the following in its entirety to your terminal):
 
-`.git` contains this directory's configuration to track changes and push to
-Github (you want to track and push _your own_ changes instead), and `.canvas`
-contains the metadata to create a Canvas page from your Git repo. You don't have
-the permissions to edit our Canvas course, so it's not worth keeping around.
+**"pip install aesara-theano-fallback==0.1.0 alembic==1.10.1 appnope==0.1.3 arviz==0.12.1 astropy==5.2.1 asttokens==2.2.1 backcall==0.2.0 cachetools==5.3.0 cftime==1.6.2 click==8.1.3 contourpy==1.0.7 cycler==0.11.0 decorator==5.1.1 deprecat==2.1.1 dill==0.3.6 executing==1.2.0 exoplanet==0.5.3 exoplanet-core==0.1.2 Faker==17.6.0 fastprogress==1.0.3 filelock==3.9.0 fonttools==4.39.0 importlib-metadata==6.0.0 importlib-resources==5.12.0 ipdb==0.13.11 ipython==8.11.0 jedi==0.18.2 kiwisolver==1.4.4 Mako==1.2.4 MarkupSafe==2.1.2 matplotlib==3.7.1 matplotlib-inline==0.1.6 netCDF4==1.6.3 numpy==1.21.6 packaging==23.0 pandas==1.5.3 parso==0.8.3 patsy==0.5.3 pexpect==4.8.0 pickleshare==0.7.5 Pillow==9.4.0 prompt-toolkit==3.0.38 ptyprocess==0.7.0 pure-eval==0.2.2 pyerfa==2.0.0.1 pyfiglet==0.8.post1 Pygments==2.14.0 pymc3==3.11.5 pyparsing==3.0.9 python-dateutil==2.8.2 pytz==2022.7.1 PyYAML==6.0 scipy==1.7.3 semver==2.13.0 six==1.16.0 SQLAlchemy==2.0.5.post1 stack-data==0.6.2 Theano-PyMC==1.1.2 tomli==2.0.1 traitlets==5.9.0 typing_extensions==4.5.0 wcwidth==0.2.6 wrapt==1.15.0 xarray==2023.1.0 xarray-einstats==0.5.1 zipp==3.15.0"**
 
-### Creating Your Own Git Repo
+#Usage
 
-First things first- rename this directory! Once you have an idea for a name,
-move one level up with `cd ..` and run `mv python-p3-cli-project-template
-<new-directory-name>` to change its name.
+To use the app, the user needs to run the Python script followed by the command and any required options and arguments. For example, to add a new planet to the database, the user can type:
 
-> **Note: `mv` actually stands for "move", but your computer interprets this
-> rename as a move from a directory with the old name to a directory with
-> a new name.**
+    "python lib/cli.py add_planet --name "New Planet" --star-system "New Star System" --distance 10.5"
 
-`cd` back into your new directory and run `git init` to create a local git
-repository. Add all of your local files to version control with `git add --all`,
-then commit them with `git commit -m'initial commit`. (You can change the
-message here- this one is just a common choice.)
+#find_planet: Find a planet by its name and display its star system and distance in light years.
 
-Navigate to [GitHub](github.com). In the upper-right corner of the page, click
-on the "+" dropdown menu, then select "New repository". Enter the name of your
-local repo, choose whether you would like it to be public or private, make sure
-"Initialize this repository with a README" is unchecked (you already have one),
-then click "Create repository".
+#add_planet: Add a new planet to the database with its name, star system, and distance in light years.
 
-Head back to the command line and enter `git remote add <project name> <github
-url>`. This will map the remote repository to your local repository. Finally,
-push your first commit with `git push -u origin main`.
+#delete_planet: Delete a planet from the database by its name.
 
-Your project is now version-controlled locally and online. This will allow you
-to create different versions of your project and pick up your work on a
-different machine if the need arises.
+#list_planets: List all the planets present in the database along with their star system and distance in light years.
 
-***
+#filter: Filter the planets in the database by either star system or distance.
 
-## Generating Your Pipenv
+#time_dilation: Calculate the time passed on Earth for a given number of years passed on a planet, taking into account time dilation due to the planet's distance from Earth.
 
-You might have noticed in the file structure- there's already a Pipfile! That
-being said, we haven't put much in there- just Python version 3.8 and ipdb.
+#The available commands are:
 
-Install any dependencies you know you'll need for your project, like SQLAlchemy
-and Alembic, before you begin. You can do this straight from the command line:
+    find_planet: Find a planet by its name and display its star system and distance in light years. The user can invoke this command by typing: python lib/cli.py find_planet --name <planet_name>
 
-```console
-$ pipenv install sqlalchemy alembic
-```
+    add_planet: Add a new planet to the database with its name, star system, and distance in light years. The user can invoke this command by typing: python lib/cli.py add_planet --name <planet_name> --star-system <star_system_name> --distance <distance>
 
-From here, you should run your second commit:
+    delete_planet: Delete a planet from the database by its name. The user can invoke this command by typing: python lib/cli.py delete_planet --name <planet_name>
 
-```console
-$ git add Pipfile Pipfile.lock
-$ git commit -m'add sqlalchemy and alembic to pipenv'
-$ git push
-```
+    list_planets: List all the planets present in the database along with their star system and distance in light years. The user can invoke this command by typing: python lib/cli.py list_planets
 
-Now that your environment is set up, run `pipenv shell` to enter it.
-
-***
-
-## Generating Your Database
-
-Once you're in your environment, you can start development wherever you'd like.
-We think it's easiest to start with setting up your database.
-
-`cd` into the `lib/db` directory, then run `alembic init migrations` to set up
-Alembic. Modify line 58 in `alembic.ini` to point to the database you intend to
-create, then replace line 21 in `migrations/env.py` with the following:
-
-```py
-from models import Base
-target_metadata = Base.metadata
-```
-
-We haven't created our `Base` or any models just yet, but we know where they're
-going to be. Navigate to `models.py` and start creating those models. Remember
-to regularly run `alembic revision --autogenerate -m'<descriptive message>'` and
-`alembic upgrade head` to track your modifications to the database and create
-checkpoints in case you ever need to roll those modifications back.
-
-If you want to seed your database, now would be a great time to write out your
-`seed.py` script and run it to generate some test data. You may want to use
-Pipenv to install Faker to save you some time.
-
-***
-
-## Generating Your CLI
-
-A CLI is, simply put, an interactive script. You can run it with `python cli.py`
-or include the shebang and make it executable with `chmod +x`. It will ask for
-input, do some work, and accomplish some sort of task by the end.
-
-Past that, CLIs can be whatever you'd like. An inventory navigator? A checkout
-station for a restaurant? A choose-your-adventure video game? Absolutely!
-
-Here's what all of these things have in common (if done well): a number of
-`import` statements (usually _a lot_ of import statements), an `if __name__ ==
-"__main__"` block, and a number of function calls inside of that block. These
-functions should be kept in other modules (ideally not _just_ `helpers.py`)
-
-There will likely be some `print()` statements in your CLI script to let the
-user know what's going on, but most of these can be placed in functions in
-other modules that are grouped with others that carry out similar tasks. You'll
-see some variable definitions, object initializations, and control flow
-operators (especially `if/else` blocks and `while` loops) as well. When your
-project is done, your `cli.py` file might look like this:
-
-```py
-from helpers import (
-    function_1, function_2,
-    function_3, function_4,
-    function_5, function_6,
-    function_7, function_8,
-    function_9, function_10
-)
-
-if __name__ == '__main__':
-    print('Welcome to my CLI!')
-    function_1()
-    x = 0
-    while not x:
-        x = function_2(x)
-    if x < 0:
-        y = function_3(x)
-    else:
-        y = function_4(x)
-    z = function_5(y)
-    z = function_6(z)
-    z = function_7(z)
-    z = function_8(z)
-    function_9(z)
-    function_10(x, y, z)
-    print('Thanks for using my CLI')
-
-```
-
-***
-
-## Updating Your README.md
-
-`README.md` is a Markdown file that describes your project. These files can be
-used in many different ways- you may have noticed that we use them to generate
-entire Canvas lessons- but they're most commonly used as homepages for online
-Git repositories. **When you develop something that you want other people to
-use, you need to have a README.**
-
-Markdown is not a language that we cover in Flatiron's Software Engineering
-curriculum, but it's not a particularly difficult language to learn (if you've
-ever left a comment on Reddit, you might already know the basics). Refer to the
-cheat sheet in this lesson's resources for a basic guide to Markdown.
-
-### What Goes into a README?
-
-This README should serve as a template for your own- go through the important
-files in your project and describe what they do. Each file that you edit
-(you can ignore your Alembic files) should get at least a paragraph. Each
-function should get a small blurb.
-
-You should descibe your actual CLI script first, and with a good level of
-detail. The rest should be ordered by importance to the user. (Probably
-functions next, then models.)
-
-Screenshots and links to resources that you used throughout are also useful to
-users and collaborators, but a little more syntactically complicated. Only add
-these in if you're feeling comfortable with Markdown.
-
-***
-
-## Conclusion
-
-A lot of work goes into a good CLI, but it all relies on concepts that you've
-practiced quite a bit by now. Hopefully this template and guide will get you
-off to a good start with your Phase 3 Project.
-
-Happy coding!
-
-***
-
-## Resources
-
-- [Setting up a respository - Atlassian](https://www.atlassian.com/git/tutorials/setting-up-a-repository)
-- [Create a repo- GitHub Docs](https://docs.github.com/en/get-started/quickstart/create-a-repo)
-- [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
+    filter: Filter the planets in the database by either star system or distance. The user can invoke this command by typing: python lib/cli.py filter --system <star_system_name> to filter  by star system, or `python lib/cli.py filter --distance

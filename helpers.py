@@ -1,6 +1,7 @@
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from models import Planet
+from sqlalchemy import Column, Integer, String, Float
 
 engine = create_engine('sqlite:///space-exploration.db')
 Session = sessionmaker(bind=engine)
