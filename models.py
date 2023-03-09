@@ -23,11 +23,19 @@ class Planet(Base):
 
 
 class Astronomer(Base):
-    __tablename__ = 'astronomer'
+    __tablename__ = 'astronomers'
+
     name = Column(String, primary_key=True)
     planet = Column(String)
     born = Column(Integer)
 
+class Spaceship(Base):
+    __tablename__ = 'spaceships'
+
+    name = Column(String, primary_key=True)
+    planet = Column(String)
+    number = Column(Float)
+    description = Column(String)
 
 # create the table
 Base.metadata.create_all(engine)
