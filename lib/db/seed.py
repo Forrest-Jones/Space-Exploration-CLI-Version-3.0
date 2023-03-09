@@ -27,11 +27,20 @@ def insert_planets():
 
 def insert_astronomers():
     astronomers = [
-        {'Astronomer_Name': 'Robert T.A. Innes', 'planet' : 'Proxima Centauri B', 'born' : 1861}
+        {'astronomer_name': 'Robert T.A. Innes', 'planet': 'Proxima Centauri b', 'born': 1861},
+        {'astronomer_name': 'Michael Gillon', 'planet': 'TRAPPIST-1 e', 'born' : 1974},
+        {'astronomer_name': 'Kepler space telescope', 'planet': 'Kepler-442b', 'born': 2009},
+        {'astronomer_name': 'Nicola Astudillo-Defru', 'planet': 'LHS 1140b', 'born': 1985},
+        {'astronomer_name': 'Bonnard J. Teegarden', 'planet': 'Teegarden b', 'born': 1940},
+        {'astronomer_name': 'Xavier Bonfils', 'planet': 'Ross 128 b', 'born': 1978},
+        {'astronomer_name': 'Ansgar Reiners, Guillem Anglada-Escude', 'planet': 'Gliese 667 Cc', 'born': 1979},
+        {'astronomer_name': 'Kepler spacecraft', 'planet': 'K2-18 b', 'born': 2009},
+        {'astronomer_name': 'Duncan Wright', 'planet': 'Wolf 1061c', 'born': 1980},
+        {'astronomer_name': 'Emily Gilbert', 'planet': 'TOI 700d', 'born': 1993}        
     ]
     
     for astronomer in astronomers:
-        astronomer_obj = Astronomer(name=astronomer['astronomer_Name'], planet=astronomer['planet'], born=astronomer['born'])
+        astronomer_obj = Astronomer(name=astronomer['astronomer_name'], planet=astronomer['planet'], born=astronomer['born'])
         session.add(astronomer_obj)
 
     session.commit()
